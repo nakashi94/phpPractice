@@ -28,4 +28,6 @@ MAIL;
     <p>
     <pre><?php echo $mailBody; ?></pre>
     </p>
+    <?php $num = 12.3 ?>
+    <p><?php echo (int)($num) ?></p>
 </body>
