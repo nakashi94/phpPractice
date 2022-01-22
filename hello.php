@@ -10,6 +10,22 @@
     <h1>phpでHello World!</h1>
     <?php $greeting = "こんにちは、世界！"; ?>
     <p><?php echo $greeting; ?></p>
-</body>
+    <?php $num = 12; ?>
+    <?php echo var_dump($num), var_dump($greeting); ?>
 
-</html>
+    <?php $month = 12; ?>
+
+    <?php
+    // ヒアドキュメント
+    $mailBody = <<< MAIL
+お問い合わせを受け付けました。
+
+
+■お問い合わせ内容は以下の通りです。
+・{$month}月〇日〇時〇〇分
+MAIL;
+    ?>
+    <p>
+    <pre><?php echo $mailBody; ?></pre>
+    </p>
+</body>
