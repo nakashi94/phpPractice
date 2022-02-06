@@ -24,6 +24,6 @@
     $someInstance->methodA();
 
     $someInstance->propertyB = 'B'; // error
-    $comeInstance->methoeB(); // error
+    $comeInstance->methodB(); // error
     ?>
 </body>
