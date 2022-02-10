@@ -4,11 +4,18 @@ declare(strict_types=1);
 
 require_once dirname(__FILE__) . '/classes/Enemy.php';
 require_once dirname(__FILE__) . '/classes/Brave.php';
+require_once dirname(__FILE__) . "/classes/BlackMage.php";
+require_once dirname(__FILE__) . "/classes/WhiteMage.php";
 
-$tiida = new Brave("ティーダ");
-$goblin = new Enemy("ゴブリン");
+$members = array();
+$members[] = new Brave('ティーダ');
+$members[] = new BlackMage('ユウナ');
+$members[] = new WhiteMage('ルールー');
 
-echo $tiida->getName(), $tiida->getHitPoint(), $tiida->getAttackPoint();
+$enemies = array();
+$enemies[] = new Enemy('ゴブリン');
+$enemies[] = new Enemy('ボム');
+$enemies[] = new Enemy('モルボル');
 
 $turn = 1;
 
