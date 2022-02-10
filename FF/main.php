@@ -5,19 +5,18 @@ declare(strict_types=1);
 require_once dirname(__FILE__) . '/classes/Enemy.php';
 require_once dirname(__FILE__) . '/classes/Brave.php';
 
-$tiida = new Brave();
-$goblin = new Enemy();
+$tiida = new Brave("ティーダ");
+$goblin = new Enemy("ゴブリン");
 
-$tiida->name = "ティーダ";
-$goblin->name = "ゴブリン";
+echo $tiida->getName(), $tiida->getHitPoint(), $tiida->getAttackPoint();
 
 $turn = 1;
 
-while ($tiida->hitPoint > 0 && $goblin->hitPoint > 0) {
+while ($tiida->getHitPoint() > 0 && $goblin->getHitPoint() > 0) {
     echo "*** $turn ターン目 *** \n\n";
 
-    echo $tiida->name . "　：　" . $tiida->hitPoint . "/" . $tiida::MAX_HITPOINT . "\n";
-    echo $goblin->name . "　：　" . $goblin->hitPoint . "/" . $goblin::MAX_HITPOINT . "\n";
+    echo $tiida->getName() . "　：　" . $tiida->getHitPoint() . "/" . $tiida::MAX_HITPOINT . "\n";
+    echo $goblin->getName() . "　：　" . $goblin->getHitPoint() . "/" . $goblin::MAX_HITPOINT . "\n";
     echo "\n";
 
     $tiida->doAttack($goblin);
@@ -29,5 +28,5 @@ while ($tiida->hitPoint > 0 && $goblin->hitPoint > 0) {
 }
 
 echo "戦闘終了 \n\n";
-echo $tiida->name . "　：　" . $tiida->hitPoint . "/" . $tiida::MAX_HITPOINT . "\n";
-echo $goblin->name . "　：　" . $goblin->hitPoint . "/" . $goblin::MAX_HITPOINT . "\n\n";
+echo $tiida->getName() . "　：　" . $tiida->getHitPoint() . "/" . $tiida::MAX_HITPOINT . "\n";
+echo $goblin->getName() . "　：　" . $goblin->getHitPoint() . "/" . $goblin::MAX_HITPOINT . "\n\n";
