@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-require_once dirname(__FILE__) . '/classes/Enemy.php';
-require_once dirname(__FILE__) . '/classes/Brave.php';
-require_once dirname(__FILE__) . '/classes/BlackMage.php';
-require_once dirname(__FILE__) . '/classes/Message.php';
-require_once dirname(__FILE__) . '/classes/WhiteMage.php';
-
+require_once dirname(__FILE__) . '/lib/Loader.php';
 require_once dirname(__FILE__) . '/lib/Utility.php';
+
+// aoutload
+$loader = new Loader();
+$loader->regDirectory(__DIR__ . '/classes');
+$loader->register();
 
 $members = array();
 $members[] = new Brave('ティーダ');
