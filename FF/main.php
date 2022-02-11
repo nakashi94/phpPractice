@@ -8,17 +8,18 @@ require_once dirname(__FILE__) . '/lib/Utility.php';
 // aoutload
 $loader = new Loader();
 $loader->regDirectory(__DIR__ . '/classes');
+$loader->regDirectory(__DIR__ . '/classes/constants');
 $loader->register();
 
 $members = array();
-$members[] = new Brave('ティーダ');
-$members[] = new BlackMage('ユウナ');
-$members[] = new WhiteMage('ルールー');
+$members[] = new Brave(CharacterName::TIIDA);
+$members[] = new BlackMage(CharacterName::RULU);
+$members[] = new WhiteMage(CharacterName::YUNA);
 
 $enemies = array();
-$enemies[] = new Enemy('ゴブリン', 20);
-$enemies[] = new Enemy('ボム', 25);
-$enemies[] = new Enemy('モルボル', 30);
+$enemies[] = new Enemy(EnemyName::GOBLINS, 20);
+$enemies[] = new Enemy(EnemyName::BOMB, 25);
+$enemies[] = new Enemy(EnemyName::MORBOL, 30);
 
 $turn = 1;
 $isFinishFlag = false;
