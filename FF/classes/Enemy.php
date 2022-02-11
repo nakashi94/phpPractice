@@ -2,52 +2,16 @@
 
 declare(strict_types=1);
 
-class Enemy
+require_once dirname(__FILE__) . '/Lives.php';
+
+class Enemy extends Lives
 {
     const MAX_HITPOINT = 50;
-    private $name;
-    private $hitPoint = 50;
-    private $attackPoint = 10;
 
-    public function __construct($name, $attackPoint)
+    public function __construct(string $name, int $attackPoint)
     {
-        $this->name = $name;
-        $this->attackPoiont = $attackPoint;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function getHitPoint()
-    {
-        return $this->hitPoint;
-    }
-
-    public function getAttackPoint(): int
-    {
-        return $this->attackPoint;
-    }
-
-    public function doAttack($humans)
-    {
-        if ($this->getHitPoint() <= 0) {
-            return false;
-        }
-        $humanIndex = rand(0, count($humans) - 1);
-        $human = $humans[$humanIndex];
-
-        echo "『" . $this->getName() . "』の攻撃！ \n";
-        echo "【" . $human->getName() . "】に" . $this->attackPoint . "のダメージ！ \n";
-        $human->tookDamage($this->attackPoint);
-    }
-
-    public function tookDamage($damage)
-    {
-        $this->hitPoint -= $damage;
-        if ($this->hitPoint < 0) {
-            $this->hitPoint = 0;
-        }
+        $hitPoint = 50;
+        $intelligence = 0;
+        parent::__construct($name, $hitPoint, $attackPoint, $intelligence);
     }
 }
