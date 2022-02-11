@@ -8,6 +8,8 @@ require_once dirname(__FILE__) . '/classes/BlackMage.php';
 require_once dirname(__FILE__) . '/classes/Message.php';
 require_once dirname(__FILE__) . '/classes/WhiteMage.php';
 
+require_once dirname(__FILE__) . '/lib/Utility.php';
+
 $members = array();
 $members[] = new Brave('ティーダ');
 $members[] = new BlackMage('ユウナ');
@@ -22,20 +24,6 @@ $turn = 1;
 $isFinishFlag = false;
 
 $messageObj = new Message;
-
-function isFinish($objects)
-{
-    $deathCount = 0;
-    foreach ($objects as $object) {
-        if ($object->getGitPoint() > 0) {
-            return false;
-        }
-        $deathCount++;
-    }
-    if ($deathCount === count($objects)) {
-        return true;
-    }
-}
 
 while (!$isFinishFlag) {
     echo "*** $turn ターン目 *** \n\n";
