@@ -42,7 +42,7 @@ class Lives
         echo $this->getName() . "の攻撃！ \n";
     }
 
-    public function calDamage($target): int
+    public function calDamage(object $target): int
     {
         return $this->hitPoint - $target->attackPoint;
     }
