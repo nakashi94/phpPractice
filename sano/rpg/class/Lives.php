@@ -17,13 +17,33 @@ class Lives
         $this->attackPoint = $attackPoint;
     }
 
+    public function setHitPoint(int $hitPoint): void
+    {
+        $this->hitPoint = $hitPoint;
+    }
+
     public function getName(): string
     {
         return $this->name;
     }
 
-    public function doAttack()
+    public function getHitPoint(): int
     {
-        echo $this->name . "は攻撃した。";
+        return $this->hitPoint;
+    }
+
+    public function getAttackPoint(): int
+    {
+        return $this->attackPoint;
+    }
+
+    public function attack(): void
+    {
+        echo $this->getName() . "の攻撃！ \n";
+    }
+
+    public function calDamage($target): int
+    {
+        return $this->hitPoint - $target->attackPoint;
     }
 }
