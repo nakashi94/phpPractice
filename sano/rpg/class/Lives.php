@@ -37,12 +37,13 @@ class Lives
         return $this->attackPoint;
     }
 
-    public function attack(): void
+    public function attack(object $target)
     {
         echo $this->getName() . "は攻撃した！　\n";
+        echo $target->getName() . "は" . $this->attackPoint . "のダメージを受けた。 \n";
     }
 
-    public function calDamage($actor): int
+    public function calDamage(object $actor): int
     {
         return $this->getHitPoint() - $actor->getAttackPoint();
     }

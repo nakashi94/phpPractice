@@ -10,11 +10,11 @@ $human = new Brave("Kaito", 100, 30);
 $enemy = new Monster("Slime", 50, 10);
 
 $win_human = true;
+$a;
 
 while (true) {
     // 人間のターン
-    $human->attack();
-    echo $enemy->getName() . "は" . $human->getAttackPoint() . "のダメージを受けた。 \n";
+    $human->attack($enemy);
     $enemy->setHitPoint($enemy->calDamage($human));
 
     // 終了処理：敵の体力が0
@@ -24,8 +24,8 @@ while (true) {
     }
 
     // 敵のターン
-    $enemy->attack();
-    echo $human->getName() . "は" . $enemy->getAttackPoint() . "のダメージを受けた。 \n";
+    $enemy->attack($human);
+
     $human->setHitPoint($human->calDamage($enemy));
 
     // 終了処理：味方の体力が0
