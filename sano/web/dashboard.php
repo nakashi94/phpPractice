@@ -4,11 +4,21 @@ declare(strict_types=1);
 
 session_start();
 
-$d = 3;
+if (
+    isset($_POST['username'])
+    && isset($_POST['password'])
+    && $_POST['username'] === "test"
+    && $_POST['password'] === "test"
+) {
+    // login OK
+    $_SESSION['user'] = [
+        'name' => $_POST['username'],
+        'password' => $_POST['password']
+    ];
+}
 
-function ($a, $b) {
-    $c = $a + $b;
-    return $c;
-};
-
-$url = print_r($_SERVER['PHP_SELF']);
+if (!empty($_SESSION['user'])) {
+    echo "ログイン中です。";
+} else {
+    echo "ログインしてください。";
+}
