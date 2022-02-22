@@ -2,6 +2,6 @@
 
 declare(strict_types=1);
 
-$a = "RrrRrrR";
-echo strtoupper($a);
-echo dirname(__DIR__);
+$s = "abcasdvabc";
+preg_match("/abc/", $s, $result);
+print_r($result);
